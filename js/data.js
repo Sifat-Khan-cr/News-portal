@@ -27,6 +27,7 @@ function displayCategory(vals) {
 }
 
 function loadNews(daata) {
+    document.getElementById('spinner').classList.remove("hidden")
     fetch(`https://openapi.programming-hero.com/api/news/category/0${daata}`)
         .then(res => res.json())
         // .then(data => console.log(data.data))
@@ -70,6 +71,7 @@ function displayNews(allNews) {
             <h3 class="font-bold text-lg">Catagory-Id : ${news.category_id}</h3>
             <h3 class="font-bold text-lg">Id : ${news._id}</h3>
             <h3 class="font-bold text-lg">Author : ${news.author.name}</h3>
+            <h3 class="font-bold text-lg">View : ${news.total_view}</h3>
                 <h3 class="font-bold text-lg">Rating : ${news.rating.number}</h3>
                 <h3 class="font-bold text-lg">Badge : ${news.rating.badge}</h3>
                 <h3 class="font-bold text-lg">Trending : ${news.others_info.is_trending}</h3>
@@ -85,6 +87,9 @@ function displayNews(allNews) {
     </div>
             `;
         categories.appendChild(element)
+        document.getElementById('spinner').classList.add("hidden")
+
+
     }
 
 }
