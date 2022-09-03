@@ -43,7 +43,7 @@ function displayNews(allNews) {
         <div
         class=" bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-            <img class="rounded-t-lg" src="${news.image_url}" alt="">
+            <img class="rounded-t-lg w-full" src="${news.image_url}" alt="">
         </a>
         <div class="p-5">
             <a href="#">
@@ -52,9 +52,8 @@ function displayNews(allNews) {
             <p class="mb-3 h-1/2 truncate font-normal text-gray-700 dark:text-gray-400">${news.details}</p>
             <div class="flex items-center my-5">
             <img class="rounded-full w-12" src="${news.author.img}" alt="">
-            <div>
-            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">${news.author.name}</h5>
-            </div>
+            <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white">${news.author.name}</h5>
+            <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Views ${news.total_view}</h5>
             </div>
             
             <a href="#"
