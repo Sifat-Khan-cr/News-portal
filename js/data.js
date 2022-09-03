@@ -34,10 +34,15 @@ function loadNews(daata) {
 }
 
 function displayNews(allNews) {
+    const totalNews = document.getElementById('total-news')
+    totalNews.innerHTML = `
+    <h5 class="m-5 truncate text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${allNews.length > 0 ? `Data Found ${allNews.length}` : "No Data Found"}</h5>
+    `
+    console.log(allNews.length);
+
     const categories = document.getElementById('news-container')
     categories.innerHTML = ``
     for (const news of allNews) {
-        console.log(news);
         const element = document.createElement('div')
         element.innerHTML = `
         <div
@@ -53,7 +58,7 @@ function displayNews(allNews) {
             <div class="flex items-center my-5">
             <img class="rounded-full w-12" src="${news.author.img}" alt="">
             <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white">${news.author.name}</h5>
-            <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Views ${news.total_view}</h5>
+            <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"><i class="fa-regular fa-eye"></i> ${news.total_view}</h5>
             </div>
             
             <a href="#"
