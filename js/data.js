@@ -30,17 +30,19 @@ function loadNews(daata) {
     document.getElementById('spinner').classList.remove("hidden")
     fetch(`https://openapi.programming-hero.com/api/news/category/0${daata}`)
         .then(res => res.json())
-        // .then(data => console.log(data.data))
         .then(data => displayNews(data.data))
 }
 
-function displayNews(allNews) {
+function displayNews(AllNews) {
+
+    const allNews = AllNews.sort((b, a) => {
+        return a.total_view - b.total_view
+    })
+
     const totalNews = document.getElementById('total-news')
     totalNews.innerHTML = `
     <h5 class="m-5 truncate text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${allNews.length > 0 ? `${allNews.length} News in this category` : "No News Found"}</h5>
     `
-    console.log(allNews.length);
-
     const categories = document.getElementById('news-container')
     categories.innerHTML = ``
     for (const news of allNews) {
