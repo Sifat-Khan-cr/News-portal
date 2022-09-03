@@ -23,6 +23,7 @@ function displayCategory(vals) {
         `;
         categories.appendChild(element)
     }
+    loadNews(8);
 }
 
 function loadNews(daata) {
@@ -40,7 +41,7 @@ function displayNews(allNews) {
         const element = document.createElement('div')
         element.innerHTML = `
         <div
-        class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        class=" bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
             <img class="rounded-t-lg" src="${news.image_url}" alt="">
         </a>
@@ -49,6 +50,12 @@ function displayNews(allNews) {
                 <h5 class="mb-2 truncate text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${news.title}</h5>
             </a>
             <p class="mb-3 h-1/2 truncate font-normal text-gray-700 dark:text-gray-400">${news.details}</p>
+            <div class="flex items-center my-5">
+            <img class="rounded-full w-12" src="${news.author.img}" alt="">
+            <div>
+            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">${news.author.name}</h5>
+            </div>
+            </div>
             
             <a href="#"
                 class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="btnclick()">
