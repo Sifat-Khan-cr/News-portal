@@ -1,6 +1,7 @@
 fetch('https://openapi.programming-hero.com/api/news/categories')
     .then(res => res.json())
     .then(data => displayCategory(data.data.news_category))
+    .catch(error => console.log(error))
 
 function displayCategory(vals) {
     for (const val of vals) {
@@ -19,6 +20,8 @@ function loadNews(daata) {
     fetch(`https://openapi.programming-hero.com/api/news/category/0${daata}`)
         .then(res => res.json())
         .then(data => displayNews(data.data))
+        .catch(error => console.log(error))
+
 }
 
 function displayNews(AllNews) {
@@ -82,9 +85,6 @@ function displayNews(AllNews) {
 
     }
 
-}
-function btnclick() {
-    console.log("clicked")
 }
 
 
