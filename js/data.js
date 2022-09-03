@@ -1,18 +1,6 @@
 fetch('https://openapi.programming-hero.com/api/news/categories')
     .then(res => res.json())
-    // .then(data => console.log(data.data.news_category.length))
     .then(data => displayCategory(data.data.news_category))
-
-// fetch('https://openapi.programming-hero.com/api/news/category/01')
-//     .then(res => res.json())
-//     // .then(data => console.log(data.data.news_category.length))
-//     .then(data => console.log(data.data[0]))
-
-// const loadData = async () => {
-//     const url = `https://openapi.programming-hero.com/api/news/category/0${daata}`
-//     const res = await fetch(url);
-//     const data = await res.json();
-//     console.log(data);
 
 function displayCategory(vals) {
     for (const val of vals) {
@@ -60,8 +48,8 @@ function displayNews(AllNews) {
             <p class="mb-3 h-1/2 truncate font-normal text-gray-700 dark:text-gray-400">${news.details}</p>
             <div class="flex items-center my-5">
             <img class="rounded-full w-12" src="${news.author.img}" alt="">
-            <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white">${news.author.name}</h5>
-            <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"><i class="fa-regular fa-eye"></i> ${news.total_view}</h5>
+            <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white">${news.author.name === null ? "not found" : news.author.name}</h5>
+            <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"><i class="fa-regular fa-eye"></i> ${news.total_view === null ? "not found" : news.total_view}</h5>
             </div>
             
             <label for="my-modal" class="btn modal-button">See more</label>
