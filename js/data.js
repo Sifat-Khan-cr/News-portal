@@ -36,7 +36,7 @@ function loadNews(daata) {
 function displayNews(allNews) {
     const totalNews = document.getElementById('total-news')
     totalNews.innerHTML = `
-    <h5 class="m-5 truncate text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${allNews.length > 0 ? `Data Found ${allNews.length}` : "No Data Found"}</h5>
+    <h5 class="m-5 truncate text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${allNews.length > 0 ? `${allNews.length} News in this category` : "No News Found"}</h5>
     `
     console.log(allNews.length);
 
@@ -61,16 +61,26 @@ function displayNews(allNews) {
             <h5 class="mb-2 ml-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"><i class="fa-regular fa-eye"></i> ${news.total_view}</h5>
             </div>
             
-            <a href="#"
-                class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="btnclick()">
-                Read more
-                <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>
+            <label for="my-modal" class="btn modal-button">See more</label>
+
+
+            <input type="checkbox" id="my-modal" class="modal-toggle" />
+        <div class="modal">
+            <div class="modal-box">
+            <h3 class="font-bold text-lg">Catagory-Id : ${news.category_id}</h3>
+            <h3 class="font-bold text-lg">Id : ${news._id}</h3>
+            <h3 class="font-bold text-lg">Author : ${news.author.name}</h3>
+                <h3 class="font-bold text-lg">Rating : ${news.rating.number}</h3>
+                <h3 class="font-bold text-lg">Badge : ${news.rating.badge}</h3>
+                <h3 class="font-bold text-lg">Trending : ${news.others_info.is_trending}</h3>
+                <h3 class="font-bold text-lg">Today Pick : ${news.others_info.is_todays_pick}</h3>
+                
+                <div class="modal-action">
+                    <label for="my-modal" class="btn">Close</label>
+                </div>
+            </div>
+        </div>
+
         </div>
     </div>
             `;
